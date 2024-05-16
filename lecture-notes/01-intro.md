@@ -20,3 +20,13 @@ Problem we are going to work on in the course - predicting the duration of a tax
    1. Often the execution order in a notebook is not linear - such an approach allows a DS to be flexible and experiment with a model but it also leads to a messy notebook that might be hard to follow
 2. MLOps best practice 1: When testing different parameters of ML models (e.g., when testing the `alpha` values of a Lasso regression), log the performance results of the fitted model into an `experiment tracker` for future reference and comparison
 3. MLOps best practice 2: Once a ML model has been fitted, save the model specification into the `model registry` (`model registy` and `expriment tracker` go together - you will keep track of the fitted models and you'll know what each model's performance was)
+4. MLOps best practice 3: Once you've got a Jupyter Notebook with a fitted ML model, you can use a ML pipeline to decompose the notebook into a series of consecutive steps. The steps can be:
+   1. Load and prepare the data
+   2. Vectorise (train the dictionary vectoriser and turn the dataframe into a feature matrix)
+   3. Train a model
+
+Notice that you can parametrise the pipeline. E.g., there can be different parameters for the `train_data` and `validation_data` periods, `model specification`. Once we have a parametrised pipeline, we can run: `python pipeline.py --train_data=... --validation_data=... --model=...`. Tools like `Prefect` and `Kubeflow` will help us create such pipelines.
+
+The output of a ML pipeline is a model. We then put this trained ML model into a web-service. 
+
+Once the model has been deployed, we need to make sure it's performing well. So we need monitoring. If there is a drop in the model's performance, our monitoring system should send an alert.
