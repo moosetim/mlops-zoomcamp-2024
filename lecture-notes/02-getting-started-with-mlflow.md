@@ -20,4 +20,5 @@
 # Steps to do locally
 
 1. Place the Jupyter notebook with the ML model from module 1 into the `02-experiment-tracking` folder
-2. Create the `data` folder and place both the training and validation sets there
+2. Create the `data` folder and place both the training and validation sets there. Download the following datasets: `green_tripdata_2021-01.csv` and `green_tripdata_2021-02.csv` (in the 2024 edition of the MLOps Zoomcamp `.parquet` files are used instead of `.csv` files)
+3. Create the `models` folder. The created ML models will be stored there
