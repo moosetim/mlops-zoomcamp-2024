@@ -27,3 +27,4 @@ Preferred method as a lot of useful information about the model is saved.
 
 A logged model can later be easily deployed.
 
+![MLflow Models format](../images/mlflow-model-format.png)
