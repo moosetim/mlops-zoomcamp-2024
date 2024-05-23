@@ -1,10 +1,13 @@
 import os
 import pickle
 import click
+import mlflow
 
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import root_mean_squared_error
 
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_experiment("hw-2-experiment") 
 
 def load_pickle(filename: str):
     with open(filename, "rb") as f_in:
@@ -26,8 +29,14 @@ def run_train(data_path: str):
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_val)
 
-    rmse = mean_squared_error(y_val, y_pred, squared=False)
+    rmse = root_mean_squared_error(y_val, y_pred)
 
+with mlflow.start_run():
+    # Enable auto-logging
+    mlflow.autolog()
+
+    # Run the training script
+    run_train()
 
 if __name__ == '__main__':
     run_train()
