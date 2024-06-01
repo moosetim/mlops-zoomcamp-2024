@@ -168,27 +168,3 @@ cython_debug/
 
 # Exclude the mlruns directory
 homeworks/mlruns/
-
-# Exclude files related to the 03-orchestration module
-*.db
-.DS_Store
-.cache/
-.file_versions
-.gitkeep
-.log
-.logs/
-.mage_temp_profiles
-.preferences.yaml
-.ssh_tunnel
-.terraform
-.terraform.*
-.variables/
-__pycache__/
-docker-compose.override.yml
-logs/
-mage_data/
-mlruns/
-secrets/
-terraform.tfstate
-terraform.tfstate.backup
-titanic_clean.csv
