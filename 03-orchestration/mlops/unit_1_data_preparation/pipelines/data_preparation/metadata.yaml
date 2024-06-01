@@ -1,0 +1,89 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/data_loaders/ingest_unit_1.py
+  downstream_blocks:
+  - ingest_unit_1_time_series_bar_chart_c5
+  - missing_values_for_ingest_unit_1
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_unit_1
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: ingest_unit_1
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-01 11:41:54.470235+00:00'
+data_integration: null
+description: Pipeline that performs feature engineering to transform raw data into
+  a set of useful input features
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Data preparation
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_preparation
+variables_dir: /home/src/mage_data/unit_1_data_preparation
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: time series bar chart
+    group_by:
+    - lpep_pickup_datetime
+    metrics:
+    - aggregation: count
+      column: lpep_pickup_datetime
+    time_interval: original
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_unit_1_time series bar chart_c5
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest_unit_1
+  uuid: ingest_unit_1_time_series_bar_chart_c5
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    x: columns_with_mising_values
+    y: percentage_of_missing_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: missing values for ingest_unit_1
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest_unit_1
+  uuid: missing_values_for_ingest_unit_1
